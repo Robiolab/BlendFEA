@@ -1,0 +1,21 @@
+schema_version = "1.0.0"
+
+id = "blendfea"
+version = "0.4.0"
+name = "BlendFEA"
+tagline = "CAD part to FEA results: face groups, Gmsh mesh, FEniCSx solve"
+maintainer = "BlendFEA contributors"
+type = "add-on"
+blender_version_min = "5.0.0"
+license = ["SPDX:MIT"]
+tags = ["Mesh", "Import-Export", "Object"]
+
+# scripts/build.py adds `platforms` and `wheels` (gmsh) to a staged copy of this file.
+# A development link of this folder uses the gmsh installed in Blender's own Python.
+
+[permissions]
+network = "Send meshes to your FEniCSx server and download results"
+files = "Import CAD and meshes, save meshes and results by the .blend"
+
+[build]
+paths_exclude_pattern = ["__pycache__/", "/.git/", "*.pyc", "*.egg-info/"]

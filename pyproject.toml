@@ -1,0 +1,29 @@
+# The Blender extension is built with scripts/build.py. This file packages only the
+# mesher (blendfea/lib) for use without Blender:  pip install .   ->  blendfea-mesh --help
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "blendfea-mesher"
+version = "0.4.0"
+description = "Turn CAD faces / mesh selections into Gmsh physical groups (the mesher behind BlendFEA)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = ["gmsh", "numpy"]
+
+[project.optional-dependencies]
+validate = ["jsonschema"]
+viz = ["pyvista"]
+dev = ["pytest", "jsonschema"]
+
+[project.scripts]
+blendfea-mesh = "matching_library.__main__:main"
+
+[tool.setuptools]
+package-dir = { "" = "blendfea/lib" }
+packages = ["matching_library", "step_converter"]
+
+[tool.setuptools.package-data]
+matching_library = ["schema/*.json"]

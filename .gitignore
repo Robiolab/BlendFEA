@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+/build/
+/dist/
+*.egg-info/
+.pytest_cache/
+# filled by scripts/build.py in the staged copy only
+/blendfea/wheels/
